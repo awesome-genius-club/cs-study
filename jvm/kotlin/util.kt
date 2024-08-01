@@ -97,3 +97,28 @@ internal class UserControllerImpl : UserController {
         TODO("Not implemented")
     }
 }
+
+// Json Serializer 분리, FE의 send field가 바뀌더라도, 구현체는 변경하지 않아도 됨.
+// 이름이 커플링될 필요는 없음. 이는, FE/BE의 결합도를 낮추는 용도
+
+@JsonDeserialize
+data class CreateUserRequest(
+    @field:NotEmpty
+    @field:Email
+    @JsonProperty(FIELD_LOGIN_EMAIL)
+    val name: String,
+
+    @field:NotEmpty
+    @JsonProperty(FIELD_AGE)
+    val age: Int,
+
+    @field:NotEmpty
+    @JsonProperty(FIELD_PASSWORD)
+    val password: String
+) {
+    companion object {
+        const val FIELD_NAME = "name"
+        const val FIELD_AGE = "age"
+        const val FIELD_PASSWORD = "password"
+    }
+}
