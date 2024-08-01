@@ -11,3 +11,16 @@ internal object UserUtils {
     fun User.isPasswordValid() = password.length >= 8
     fun User.isNameValid() = name.length >= 2
 }
+
+// Main Class에 App 관련 String 모음 예시
+class AppApplication {
+    init {
+        // start logic...
+    }
+
+    companion object {
+        const val PACKAGE_NAME = "com.test.test"
+
+        const val VERSION = "0.0.1"
+    }
+}
