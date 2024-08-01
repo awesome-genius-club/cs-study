@@ -58,3 +58,39 @@ object ApiPathV1 {
 
     const val USER_ID = "$USER/${ApiVariable.ID}"
 }
+
+// Controller interface 분리
+// Hexagonal Architecture에서 사용하는 in Adapter의 관점으로 사용
+@RequestMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
+interface UserController {
+    @GetMapping(ApiPathV1.USER_ID, consumes = [MediaType.APPLICATION_JSON_VALUE])
+    fun getUser(id: String): User
+
+    @PostMapping(ApiPathV1.USER, consumes = [MediaType.APPLICATION_JSON_VALUE])
+    fun createUser(user: User): User
+
+    @PutMapping(ApiPathV1.USER_ID, consumes = [MediaType.APPLICATION_JSON_VALUE])
+    fun updateUser(id: String, user: User): User
+
+    @DeleteMapping(ApiPathV1.USER_ID)
+    fun deleteUser(id: String)
+}
+
+@RestController
+internal class UserControllerImpl : UserController {
+    override fun getUser(id: String): User {
+        TODO("Not implemented")
+    }
+
+    override fun createUser(user: User): User {
+        TODO("Not implemented")
+    }
+
+    override fun updateUser(id: String, user: User): User {
+        TODO("Not implemented")
+    }
+
+    override fun deleteUser(id: String) {
+        TODO("Not implemented")
+    }
+}
