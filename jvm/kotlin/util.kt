@@ -24,3 +24,15 @@ class AppApplication {
         const val VERSION = "0.0.1"
     }
 }
+
+// MimeType 분리 Pattern
+// 필요시에 추가하는 Pattern으로 하면 좋을 듯 함.
+// MDN: https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+object MimeType {
+    const val JSON = "application/json"
+    const val XML = "application/xml"
+    const val HTML = "text/html"
+    const val EXCEL = "application/vnd.ms-excel"
+    const val PDF = "application/pdf"
+    const val ZIP = "application/zip"
+}
