@@ -36,3 +36,25 @@ object MimeType {
     const val PDF = "application/pdf"
     const val ZIP = "application/zip"
 }
+
+// api paths 분리 Pattern
+object WebPath {
+    const val ROOT = "/"
+    const val ERROR = "/error"
+    const val API = "/api"
+    const val HEALTH = "/health"
+    const val DOCS = "/docs"
+}
+
+object ApiVariable {
+    const val ID = "{id}"
+}
+
+object ApiPathV1 {
+    const val PREFIX = "${WebPath.API}/v1"
+
+    @Deprecated("Use ApiPathV2")
+    const val USER = "$PREFIX/user"
+
+    const val USER_ID = "$USER/${ApiVariable.ID}"
+}
